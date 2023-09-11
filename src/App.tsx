@@ -1,5 +1,5 @@
 import './App.css'
-import Index from "./views/Index.tsx";
+import Index from "./views/Main";
 
 function App() {
   return (
