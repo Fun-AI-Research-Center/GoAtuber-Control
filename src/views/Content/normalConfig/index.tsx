@@ -1,5 +1,6 @@
 import "./index.scss"
 import ConfigRadioGroup from "../../../components/ConfigRadioGroup.tsx";
+import Proxy from "./proxy";
 
 
 function App() {
@@ -47,6 +48,8 @@ function App() {
             labels:["dict","none"],
                 texts:["字典匹配","不选(不过滤)"]
         }} />
+
+        <Proxy></Proxy>
     </>)
 }
 

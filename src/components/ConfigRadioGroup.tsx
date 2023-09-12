@@ -47,7 +47,6 @@ const ConfigRadioGroup: FC<Props> = ({ title, ConfigItem }) => {
     }
 
     function handleChange(e:any) {
-
            labels.map((item)=>{
                if (e.target.value === item){
                    updateData(item);
