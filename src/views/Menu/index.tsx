@@ -3,7 +3,6 @@ import type { MenuProps  } from 'antd';
 import {useNavigate } from "react-router-dom"
 import {Button, Menu} from 'antd';
 import "./index.scss"
-import {createLogger} from "vite";
 type MenuItem = Required<MenuProps>['items'][number];
 const Items = ["常规配置","监听平台配置","工具配置","应用包配置"]
 const paths = ["/normalConfig","/monitorConfig","/tool","/applicationPackage"]
