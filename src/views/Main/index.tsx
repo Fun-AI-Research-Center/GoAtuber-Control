@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layout, Space ,Typography} from 'antd';
-import Menu from "../Menu/ienu.tsx"
+import Menu from "../Menu";
+import AllContent from "../Content";
 import "./index.scss"
 const { Header, Sider, Content  } = Layout;
 const { Title } = Typography;
@@ -19,7 +20,7 @@ const App: React.FC = () => (
             <Header className="header"><Title className="title">GoATuber Setting</Title></Header>
             <Layout hasSider>
                 <Sider className="side"><Menu></Menu></Sider>
-                <Content className="content">Content</Content>
+                <Content className="content"><AllContent></AllContent></Content>
             </Layout>
         </Layout>
     </Space>
