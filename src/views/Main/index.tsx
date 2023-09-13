@@ -7,13 +7,6 @@ const { Header, Sider, Content  } = Layout;
 const { Title } = Typography;
 
 
-
-
-
-
-
-
-
 const App: React.FC = () => (
     <Space direction="vertical" style={{ width: '100%',height:"100%"}} size={[0, 48]}>
         <Layout>

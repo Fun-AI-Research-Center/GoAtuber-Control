@@ -2,7 +2,8 @@ import {createHashRouter} from "react-router-dom";
 import App from "../App.tsx";
 import ErrorPage from "../error-page.tsx";
 import NormalConfig from "../views/Content/normalConfig";
-
+import MonitorConfig from "../views/Content/monitorConfig";
+import ToolConfig from "../views/Content/toolConfig";
 
 const router = createHashRouter([
     {
@@ -14,6 +15,14 @@ const router = createHashRouter([
                 path:"/normalConfig",
                 element: <NormalConfig></NormalConfig>,
             },
+            {
+                path:"/monitorConfig",
+                element: <MonitorConfig></MonitorConfig>,
+            },
+            {
+                path:"/toolConfig",
+                element: <ToolConfig></ToolConfig>,
+            }
         ],
 
     },
