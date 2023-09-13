@@ -1,7 +1,8 @@
 import {FC} from "react";
-import {Row, Switch, Input, Col} from "antd";
+import {Row, Switch, Col} from "antd";
 import {Config, useData} from "../../../../context/DataContext.tsx";
 import {produce} from "immer";
+import TitleInput from "../../../../components/TitleInput.tsx";
 const App : FC = () => {
     const {data,setData} = useData()
     const onChange = (checked: boolean) => {
@@ -11,14 +12,7 @@ const App : FC = () => {
         setData(newData);
     };
 
-    function handleUrlChange(e:any){
-        const newUrl = e.target.value;
-        // 使用 immer 更新 proxy_url 属性
-        const newData = produce(data, (draft:Config) => {
-            draft.proxy.proxy_url = newUrl;
-        });
-        setData(newData);
-    }
+
 
 
     return(
@@ -33,12 +27,7 @@ const App : FC = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={4}>
-                        <h4 style={{margin:0,height:"100%",lineHeight:2}}>url:</h4>
-                    </Col>
-                    <Col>
-                        <Input defaultValue="mysite" value={data?.proxy.proxy_url} onChange={handleUrlChange}/>
-                    </Col>
+                    <TitleInput propNames={["proxy"]} label="proxy_url" title="url:"></TitleInput>
                 </Row>
             </div>
         </>
