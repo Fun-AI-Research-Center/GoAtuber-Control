@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { Col, Radio, Row } from "antd";
 import { produce } from "immer";
 import {useData} from "../context/DataContext.tsx";
+import React from "react";
 interface TConfigItem {
     propName:string[],
     labels:string[],
@@ -9,10 +10,11 @@ interface TConfigItem {
 }
 interface Props {
     title: string; // 标题
-    ConfigItem:TConfigItem
+    ConfigItem:TConfigItem,
+    Icon?:React.ReactNode
 }
 
-const ConfigRadioGroup: FC<Props> = ({ title, ConfigItem }) => {
+const ConfigRadioGroup: FC<Props> = ({ title, ConfigItem,Icon }) => {
     const { data, setData } = useData();
     const {propName,labels,texts} = ConfigItem
 
@@ -63,7 +65,7 @@ const ConfigRadioGroup: FC<Props> = ({ title, ConfigItem }) => {
             <Row style={{ margin: 10 }}>
                 <Col style={{padding:"0 20px"}}>
                     <h4 style={{ margin: 0, height: "100%", lineHeight: "2.5em" }}>
-                        {title}:
+                        {title} {Icon}
                     </h4>
                 </Col>
                 <Col offset={2}>
