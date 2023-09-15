@@ -1,14 +1,17 @@
 import type {FC} from "react"
-import {Col, Input} from "antd";
+import {Col, Input, Row} from "antd";
 import {produce} from "immer";
 import {useData} from "../context/DataContext.tsx";
+import React from "react";
 
 type Props = {
     propNames:string[],
     label:string,
-    title:string
+    title:string,
+    style?:object,
+    frontIcon?:React.ReactNode
 }
-const App : FC<Props> = ({propNames,label,title})=> {
+const App : FC<Props> = ({propNames,label,title,style,frontIcon})=> {
     const {data,setData} = useData()
     function handleUrlChange(e:any){
         const newUrl = e.target.value;
@@ -31,12 +34,14 @@ const App : FC<Props> = ({propNames,label,title})=> {
 
     return(
         <>
-            <Col span={4}>
-                <h4 style={{margin:0,height:"100%",lineHeight:2}}>{title}</h4>
-            </Col>
-            <Col>
-                <Input defaultValue="mysite" value={getLastObject(data)[label]} onChange={handleUrlChange}/>
-            </Col>
+            <Row style={{...style}}>
+                <Col span={6}>
+                        <h4 style={{margin:0,height:"100%",lineHeight:2}}>{title} {frontIcon}</h4>
+                </Col>
+                <Col span={16}>
+                    <Input defaultValue="mysite" value={getLastObject(data)[label]} onChange={handleUrlChange}/>
+                </Col>
+            </Row>
         </>
     )
 }
