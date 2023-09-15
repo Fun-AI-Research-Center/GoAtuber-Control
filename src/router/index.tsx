@@ -4,6 +4,7 @@ import ErrorPage from "../error-page.tsx";
 import NormalConfig from "../views/Content/normalConfig";
 import MonitorConfig from "../views/Content/monitorConfig";
 import ToolConfig from "../views/Content/toolConfig";
+import ApplicationConfig from "../views/Content/applicationConfig";
 
 const router = createHashRouter([
     {
@@ -22,6 +23,10 @@ const router = createHashRouter([
             {
                 path:"/toolConfig",
                 element: <ToolConfig></ToolConfig>,
+            },
+            {
+                path:"/applicationConfig",
+                element:<ApplicationConfig></ApplicationConfig>
             }
         ],
 

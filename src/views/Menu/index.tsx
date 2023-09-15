@@ -5,7 +5,7 @@ import {Button, Menu} from 'antd';
 import "./index.scss"
 type MenuItem = Required<MenuProps>['items'][number];
 const Items = ["常规配置","监听平台配置","工具配置","应用包配置"]
-const paths = ["/normalConfig","/monitorConfig","/toolConfig","/applicationPackage"]
+const paths = ["/normalConfig","/monitorConfig","/toolConfig","/applicationConfig"]
 
 function getItem(
     label: React.ReactNode,

@@ -1,9 +1,8 @@
 import type {FC} from "react"
-import {Col, Row, Switch} from "antd";
-import {Config, useData} from "../../../context/DataContext.tsx";
+import {Col, Row} from "antd";
 import "./index.scss"
-import {produce} from "immer";
 import ConfigRadioGroup from "../../../components/ConfigRadioGroup.tsx";
+import TitleSwitch from "../../../components/TitleSwitch.tsx";
 const ConfigItems = [
     {
         title:"选择嵌入服务",
@@ -22,13 +21,7 @@ const ConfigItems = [
 ]
 
 const App: FC = ()=>{
-    const {data,setData} = useData()
-    const handleChange = (checked:boolean)=>{
-         const newData = produce(data,(draft:Config)=>{
-             draft.tool.memory.use_memory = checked
-         })
-        setData(newData)
-    }
+
     return(
         <>
          <Row style={{background:"#F3F5F7",padding:"10px 0"}}>
@@ -38,19 +31,15 @@ const App: FC = ()=>{
                 </span>
             </Col>
             <Col span={21}>
-                <Row>
-                    <Col>
-                        <h4 style={{margin:0,lineHeight:1.5,padding:"0 30px"}}>
-                            是否启用长期记忆(会增加token消耗):
-                        </h4>
-                    </Col>
-                    <Col>
-                        <Switch checked={data?.tool.memory.use_memory} onChange={handleChange}></Switch>
-                    </Col>
-                </Row>
-                       {ConfigItems.map((item) =>{
-                           return <ConfigRadioGroup title={item.title} ConfigItem={item.ConfigItem}></ConfigRadioGroup>
-                       })}
+                <TitleSwitch
+                    text="是否启用长期记忆(会增加token消耗):"
+                    propNames={["tool","memory"]}
+                    label="use_memory"
+                ></TitleSwitch>
+
+               {ConfigItems.map((item) =>{
+                   return <ConfigRadioGroup title={item.title} ConfigItem={item.ConfigItem}></ConfigRadioGroup>
+               })}
             </Col>
          </Row>
         </>
