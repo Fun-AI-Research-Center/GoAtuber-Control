@@ -3,20 +3,24 @@ import {Col, Row} from "antd";
 import "./index.scss"
 import ConfigRadioGroup from "../../../components/ConfigRadioGroup.tsx";
 import TitleSwitch from "../../../components/TitleSwitch.tsx";
+import baseUrl from "../../../constant/baseUrl.ts";
 const ConfigItems = [
     {
         title:"选择嵌入服务",
         ConfigItem:{
             propName: ["tool","memory"],
             labels:["use_azure","use_openai"],
-            texts:["使用OpenAI","使用Azure OpenAI"]
+            texts:["使用OpenAI","使用Azure OpenAI"],
+            updateUrl:baseUrl + "/memory"
         }},
+
     {
         title:"选择数据库服务",
         ConfigItem:{
             propName: ["tool","memory"],
             labels:["use_pinecone"],
-            texts:["使用pinecone向量数据库"]
+            texts:["使用pinecone向量数据库"],
+            updateUrl:baseUrl + "/memory"
         }},
 ]
 

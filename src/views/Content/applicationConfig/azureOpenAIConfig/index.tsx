@@ -4,6 +4,7 @@ import TitleInput from "../../../../components/TitleInput.tsx";
 import {Configs1,Configs2,Configs3} from "./configs.ts";
 import useIconHook from "../../../../hooks/useIconHook.tsx";
 import ConfigRadioGroup from "../../../../components/ConfigRadioGroup.tsx";
+import baseUrl from "../../../../constant/baseUrl.ts";
 
 
 const App : FC = () => {
@@ -42,7 +43,8 @@ const App : FC = () => {
                                     ConfigItem={{
                                         propName:["application","azure","azure_openai","memory_and_clean"],
                                         labels:["clean_all","clean_one"],
-                                        texts:["清楚全部","清除队首"]
+                                        texts:["清除全部","清除队首"],
+                                        updateUrl:baseUrl+"/azure_openai"
                                     }}
                                     Icon={Icon(text2)}
                                 ></ConfigRadioGroup>
