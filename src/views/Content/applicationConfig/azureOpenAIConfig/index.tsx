@@ -44,7 +44,7 @@ const App : FC = () => {
                                         propName:["application","azure","azure_openai","memory_and_clean"],
                                         labels:["clean_all","clean_one"],
                                         texts:["清除全部","清除队首"],
-                                        updateUrl:baseUrl+"/azure_openai"
+                                        updateUrl:baseUrl+"/azure"
                                     }}
                                     Icon={Icon(text2)}
                                 ></ConfigRadioGroup>
