@@ -4,11 +4,13 @@ import { produce } from "immer";
 import {useData} from "../context/DataContext.tsx";
 import React, {useRef} from "react";
 import useUpdateHook from "../hooks/useUpdateHook.ts";
+import getLastObject from "../utils/getLastObject.ts";
 interface TConfigItem {
     propName:string[],
     labels:string[],
     texts:string[],
-    updateUrl:string
+    updateUrl:string,
+    updatePropsName?:string[]
 }
 interface Props {
     title: string; // 标题
@@ -18,36 +20,28 @@ interface Props {
 
 const ConfigRadioGroup: FC<Props> = ({ title, ConfigItem,Icon }) => {
     const { data, setData } = useData();
-    const {propName,labels,texts} = ConfigItem
-    const {clearTime} =useRef(useUpdateHook(ConfigItem.updateUrl)).current
+    const {propName,labels,texts,updateUrl,updatePropsName} = ConfigItem
+    const {clearTime} =useRef(useUpdateHook(updateUrl)).current
 
     function getValue() {
         for ( const item of labels) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            if (getLastObject(data)[item]){
+            if (getLastObject(propName,data)[item]){
                 return item
             }
         }
     }
 
-    function getLastObject(data:any){
-        let LastObject = data
-       propName.forEach((item) =>{
-           if (LastObject[item]) {
-               LastObject = LastObject[item]
-           }
-       })
-       return LastObject
-    }
 
     function updateData(changeLable:string) {
         const newData = produce(data, (draft: any) => {
             labels.map((item)=>{
-                getLastObject(draft)[item] = item === changeLable;
+                getLastObject(propName,draft)[item] = item === changeLable;
             })
         });
-        const newLastData = getLastObject(newData)
+        const NewConfigProps = updatePropsName ?  updatePropsName : propName
+        const newLastData =  getLastObject(NewConfigProps,newData)
         clearTime(false,newLastData)
         setData(newData);
     }
