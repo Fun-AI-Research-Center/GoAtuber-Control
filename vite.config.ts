@@ -6,9 +6,9 @@ export default defineConfig({
   plugins: [react()],
   server:{
     proxy:{
-      "/init":{
+      "^/control/.*":{
         changeOrigin:true,
-        target:"http://127.0.0.1:8900"
+        target:"http://127.0.0.1:9000"
       }
     }
   }

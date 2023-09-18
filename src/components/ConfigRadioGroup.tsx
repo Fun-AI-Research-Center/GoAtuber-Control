@@ -2,21 +2,24 @@ import type { FC } from "react";
 import { Col, Radio, Row } from "antd";
 import { produce } from "immer";
 import {useData} from "../context/DataContext.tsx";
-import React from "react";
+import React, {useRef} from "react";
+import useUpdateHook from "../hooks/useUpdateHook.ts";
 interface TConfigItem {
     propName:string[],
     labels:string[],
-    texts:string[]
+    texts:string[],
+    updateUrl:string
 }
 interface Props {
     title: string; // 标题
     ConfigItem:TConfigItem,
-    Icon?:React.ReactNode
+    Icon?:React.ReactNode,
 }
 
 const ConfigRadioGroup: FC<Props> = ({ title, ConfigItem,Icon }) => {
     const { data, setData } = useData();
     const {propName,labels,texts} = ConfigItem
+    const {clearTime} =useRef(useUpdateHook(ConfigItem.updateUrl)).current
 
     function getValue() {
         for ( const item of labels) {
@@ -26,7 +29,6 @@ const ConfigRadioGroup: FC<Props> = ({ title, ConfigItem,Icon }) => {
                 return item
             }
         }
-
     }
 
     function getLastObject(data:any){
@@ -45,7 +47,8 @@ const ConfigRadioGroup: FC<Props> = ({ title, ConfigItem,Icon }) => {
                 getLastObject(draft)[item] = item === changeLable;
             })
         });
-
+        const newLastData = getLastObject(newData)
+        clearTime(false,newLastData)
         setData(newData);
     }
 
