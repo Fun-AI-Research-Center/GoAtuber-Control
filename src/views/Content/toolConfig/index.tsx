@@ -41,8 +41,13 @@ const App: FC = ()=>{
                     label="use_memory"
                 ></TitleSwitch>
 
-               {ConfigItems.map((item) =>{
-                   return <ConfigRadioGroup title={item.title} ConfigItem={item.ConfigItem}></ConfigRadioGroup>
+               {ConfigItems.map((item,index) =>{
+                   return <ConfigRadioGroup
+                       title={item.title}
+                       ConfigItem={item.ConfigItem}
+                       key={index}
+
+                   ></ConfigRadioGroup>
                })}
             </Col>
          </Row>

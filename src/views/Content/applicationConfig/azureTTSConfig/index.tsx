@@ -15,8 +15,15 @@ const App : FC = () => {
                 </span>
                 </Col>
                 <Col span={19}>
-                    {Configs.map(item =>{
-                        return <TitleInput propNames={item.propNames} title={item.title} label={item.label} style={{padding:"5px 0"}}></TitleInput>
+                    {Configs.map((item,index) =>{
+                        return <TitleInput propNames={item.propNames}
+                                           title={item.title}
+                                           label={item.label}
+                                           style={{padding:"5px 0"}}
+                                           key={index}
+                                           updateUrl={item.updateUrl}
+                                           updatePropsName={item.updatePropsName}
+                        ></TitleInput>
                     })}
                 </Col>
             </Row>

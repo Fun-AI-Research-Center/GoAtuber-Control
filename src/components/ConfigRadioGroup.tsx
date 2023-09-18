@@ -68,7 +68,7 @@ const ConfigRadioGroup: FC<Props> = ({ title, ConfigItem,Icon }) => {
                 <Col offset={2}>
                     <Radio.Group buttonStyle="solid" value={getValue()} onChange={handleChange}>
                         {labels.map((item:string,index:number) => (
-                            <Radio.Button key={item} value={item}>
+                            <Radio.Button key={index} value={item} >
                                 {texts[index]}
                             </Radio.Button>
                         ))}

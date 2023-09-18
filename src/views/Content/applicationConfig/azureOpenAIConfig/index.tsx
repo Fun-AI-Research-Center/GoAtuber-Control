@@ -20,8 +20,16 @@ const App : FC = () => {
                 </span>
                 </Col>
                 <Col span={19}>
-                    {Configs1.map(item =>{
-                        return <TitleInput propNames={item.propNames} title={item.title} label={item.label} style={{padding:"5px 0"}}></TitleInput>
+                    {Configs1.map((item,index) =>{
+                        return <TitleInput
+                            propNames={item.propNames}
+                            title={item.title}
+                            label={item.label}
+                            style={{padding:"5px 0"}}
+                            updateUrl={item.updateUrl}
+                            updatePropsName={item.updatePropsName}
+                            key={index}
+                        ></TitleInput>
                     })}
                     <Col>
                         <Row style={{width:"100%"}}>
@@ -31,12 +39,15 @@ const App : FC = () => {
                                 </span>
                             </Col>
                             <Col span={19} >
-                                {Configs2.map(item =>{
+                                {Configs2.map((item,index) =>{
                                     return <TitleInput propNames={item.propNames}
                                                        title={item.title}
                                                        label={item.label}
                                                        style={{padding:"5px 0"}}
                                                        frontIcon={Icon(text1)}
+                                                       key={index}
+                                                       updateUrl={item.updateUrl}
+                                                       updatePropsName={item.updatePropsName}
                                     ></TitleInput>})}
                                 <ConfigRadioGroup
                                     title="记忆清理方式"
@@ -59,11 +70,14 @@ const App : FC = () => {
                             </span>
                             </Col>
                             <Col span={19} >
-                                {Configs3.map(item =>{
+                                {Configs3.map((item,index) =>{
                                     return <TitleInput propNames={item.propNames}
                                                        title={item.title}
                                                        label={item.label}
                                                        style={{padding:"5px 0"}}
+                                                       key={index}
+                                                       updateUrl={item.updateUrl}
+                                                       updatePropsName={item.updatePropsName}
                                     ></TitleInput>})}
                             </Col>
                         </Row>
