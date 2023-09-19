@@ -39,42 +39,48 @@ export const Configs1 = [
         title:"温度",
         label:"temperature",
         updateUrl:updateUrl,
-        updatePropsName : updatePropsName
+        updatePropsName : updatePropsName,
+        isNumber: true
     },
     {
         propNames:propNames,
         title:"Top P",
         label:"top_p",
         updateUrl:updateUrl,
-        updatePropsName : updatePropsName
+        updatePropsName : updatePropsName,
+        isNumber: true
     },
     {
         propNames:propNames,
         title:"一次对话最大token使用限制",
         label:"max_tokens",
         updateUrl:updateUrl,
-        updatePropsName : updatePropsName
+        updatePropsName : updatePropsName,
+        isNumber: true
     },
     {
         propNames:propNames,
         title:"停止标志",
         label:"stop",
         updateUrl:updateUrl,
-        updatePropsName : updatePropsName
+        updatePropsName : updatePropsName,
+
     },
     {
         propNames:propNames,
         title:"presence penalty",
         label:"presence_penalty",
         updateUrl:updateUrl,
-        updatePropsName : updatePropsName
+        updatePropsName : updatePropsName,
+        isNumber: true
     },
     {
         propNames:propNames,
         title:"frequency penalty",
         label:"frequency_penalty",
         updateUrl:updateUrl,
-        updatePropsName : updatePropsName
+        updatePropsName : updatePropsName,
+        isNumber: true
     },
 ]
 

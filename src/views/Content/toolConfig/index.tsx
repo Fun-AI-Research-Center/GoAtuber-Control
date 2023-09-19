@@ -39,6 +39,7 @@ const App: FC = ()=>{
                     text="是否启用长期记忆(会增加token消耗):"
                     propNames={["tool","memory"]}
                     label="use_memory"
+                    updateUrl={baseUrl + "/memory"}
                 ></TitleSwitch>
 
                {ConfigItems.map((item,index) =>{

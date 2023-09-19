@@ -11,6 +11,7 @@ const App: FC = () => {
                     propNames={["listen","bilibili"]}
                     label="room_id" title="B站直播间房间号:"
                     updateUrl={baseUrl + "/bilibili"}
+                    isNumber = {true}
 
                 ></TitleInput>
             </div>

@@ -28,6 +28,7 @@ const App : FC = () => {
                             style={{padding:"5px 0"}}
                             updateUrl={item.updateUrl}
                             updatePropsName={item.updatePropsName}
+                            isNumber={item.isNumber}
                             key={index}
                         ></TitleInput>
                     })}
@@ -48,6 +49,8 @@ const App : FC = () => {
                                                        key={index}
                                                        updateUrl={item.updateUrl}
                                                        updatePropsName={item.updatePropsName}
+                                                       isNumber={true}
+
                                     ></TitleInput>})}
                                 <ConfigRadioGroup
                                     title="记忆清理方式"
