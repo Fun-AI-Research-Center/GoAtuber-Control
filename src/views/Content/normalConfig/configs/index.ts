@@ -22,27 +22,27 @@ const Configs = [
         title: "LLM平台选择",
         ConfigItem: {
             propName: ["llm"],
-            labels: ["openai", "azure_openai", "none"],
-            texts: ["OpenAI", "Azure OpenAI", "不选(不使用任何LLM平台)"],
+            labels: ["openai", "azure_openai","baidu_ernie","xun_fei", "none"],
+            texts: ["OpenAI", "Azure OpenAI","文心一言","星火大模型","不选(不使用任何LLM平台)"],
             updateUrl:baseUrl + "/llm"
         }
     },
     {
-        title: "文本转语音平台选择",
-        ConfigItem: {
-            propName: ["speech"],
-            labels: ["azure", "none"],
-            texts: ["Azure文本转语音服务", "不选(不使用tts服务)"],
-            updateUrl:baseUrl + "/speech"
-        }
-    },
-    {
-        title: "语音转文本平台选择",
+        title: "文本转语音平台选择(TTS)",
         ConfigItem: {
             propName: ["voice"],
             labels: ["azure", "xfyun", "none"],
             texts: ["Azure语音转文本服务", "讯飞语音转文本服务", "不选(不使用stt服务)"],
             updateUrl:baseUrl + "/voice"
+        }
+    },
+    {
+        title: "语音转文本平台选择(STT)",
+        ConfigItem: {
+            propName: ["speech"],
+            labels: ["azure", "none"],
+            texts: ["Azure文本转语音服务", "不选(不使用tts服务)"],
+            updateUrl:baseUrl + "/speech"
         }
     },
     {
