@@ -4,7 +4,10 @@ import ErrorPage from "../error-page.tsx";
 import NormalConfig from "../views/Content/normalConfig";
 import MonitorConfig from "../views/Content/monitorConfig";
 import ToolConfig from "../views/Content/toolConfig";
-import ApplicationConfig from "../views/Content/applicationConfig";
+import Azure from "../views/Content/applicationConfig/azure";
+import XunFei from "../views/Content/applicationConfig/xunfei";
+import Baidu from "../views/Content/applicationConfig/baidu";
+
 
 const router = createHashRouter([
     {
@@ -25,9 +28,18 @@ const router = createHashRouter([
                 element: <ToolConfig></ToolConfig>,
             },
             {
-                path:"/applicationConfig",
-                element:<ApplicationConfig></ApplicationConfig>
+                path:"/azureConfig",
+                element:<Azure></Azure>
+            },
+            {
+                path:"/xunfei",
+                element:<XunFei></XunFei>
+            },
+            {
+                path:"/baidu",
+                element:<Baidu></Baidu>
             }
+
         ],
 
     },
