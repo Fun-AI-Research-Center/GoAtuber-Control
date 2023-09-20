@@ -6,7 +6,7 @@ import React, {useRef} from "react";
 import getLastObject from "../utils/getLastObject.ts";
 import useUpdateHook from "../hooks/useUpdateHook.ts";
 
-type Props = {
+export type Props = {
     propNames:string[],
     label:string,
     text:string,

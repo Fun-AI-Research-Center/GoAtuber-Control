@@ -12,7 +12,7 @@ interface TConfigItem {
     updateUrl:string,
     updatePropsName?:string[]
 }
-interface Props {
+export interface Props {
     title: string; // 标题
     ConfigItem:TConfigItem,
     Icon?:React.ReactNode,
