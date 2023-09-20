@@ -1,4 +1,4 @@
-import baseUrl from "../../../../constant/baseUrl.ts";
+import baseUrl from "../../../../../constant/baseUrl.ts";
 
 const propNames1 = ["application","azure","azure_tts"]
 const propNames2 = ["application","azure","azure_tts","speak"]

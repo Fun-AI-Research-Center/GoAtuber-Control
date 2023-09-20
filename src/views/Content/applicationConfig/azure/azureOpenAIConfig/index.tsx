@@ -1,10 +1,10 @@
 import type {FC} from "react"
 import {Col, Row} from "antd";
-import TitleInput from "../../../../components/TitleInput.tsx";
+import TitleInput from "../../../../../components/TitleInput.tsx";
 import {Configs1,Configs2,Configs3} from "./configs.ts";
-import useIconHook from "../../../../hooks/useIconHook.tsx";
-import ConfigRadioGroup from "../../../../components/ConfigRadioGroup.tsx";
-import baseUrl from "../../../../constant/baseUrl.ts";
+import useIconHook from "../../../../../hooks/useIconHook.tsx";
+import ConfigRadioGroup from "../../../../../components/ConfigRadioGroup.tsx";
+import baseUrl from "../../../../../constant/baseUrl.ts";
 
 
 const App : FC = () => {

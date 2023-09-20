@@ -1,7 +1,7 @@
 import type {FC} from "react";
 import {Col, Row} from "antd";
 import Configs from "./configs.ts";
-import TitleInput from "../../../../components/TitleInput.tsx";
+import TitleInput from "../../../../../components/TitleInput.tsx";
 
 
 const App : FC = () => {

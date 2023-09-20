@@ -1,4 +1,4 @@
-import baseUrl from "../../../../constant/baseUrl.ts";
+import baseUrl from "../../../../../constant/baseUrl.ts";
 
 const propNames = ["application","azure","azure_stt"]
 const updateUrl = baseUrl + "/azure"

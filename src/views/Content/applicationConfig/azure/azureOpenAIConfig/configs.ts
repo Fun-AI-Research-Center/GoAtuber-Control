@@ -1,4 +1,4 @@
-import baseUrl from "../../../../constant/baseUrl.ts";
+import baseUrl from "../../../../../constant/baseUrl.ts";
 const propNames = ["application","azure","azure_openai"]
 const propNames2 = ["application","azure","azure_openai","memory_and_clean"]
 const propNames3 = ["application","azure","azure_openai","azure_embedding"]
