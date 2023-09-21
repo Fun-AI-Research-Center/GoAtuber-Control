@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import type { MenuProps  } from 'antd';
 import {useNavigate } from "react-router-dom"
-import {Menu} from 'antd';
+import {Button, Menu} from 'antd';
 import "./index.scss"
+import axios from "axios";
 type MenuItem = Required<MenuProps>['items'][number];
 const Items = ["常规配置","监听平台配置","工具配置","应用包配置"]
 const applicationConfigs = ["Azure","讯飞","百度"]
@@ -52,15 +53,28 @@ const App: React.FC = () => {
         navigate("/normalConfig")
     },[])
 
+    function Start() {
+        axios.get("/control/run").then(res => {
+           if (res.status === 200){
+               console.log("启动成功")
+           }
+        })
+    }
+
     return (
         <>
-            <Menu
-                onClick={onClick}
-                style={{ width: "100%"}}
-                defaultSelectedKeys={getDefaultIndex()}
-                mode="inline"
-                items={items}
-            />
+          <div className="outer-box">
+              <div className="inner-box">
+                  <Menu
+                      onClick={onClick}
+                      style={{ width: "100%"}}
+                      defaultSelectedKeys={getDefaultIndex()}
+                      mode="inline"
+                      items={items}
+                  />
+              </div>
+              <Button type="primary" className="star-button" onClick={Start}>启动</Button>
+          </div>
         </>
 );
 };

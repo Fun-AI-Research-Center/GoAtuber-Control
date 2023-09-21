@@ -1,9 +1,14 @@
 import type {FC} from "react"
 import {Outlet} from "react-router-dom";
+import "./index.scss"
 
 const App: FC = () => {
     return <>
-   <Outlet></Outlet>
+   <div className="outer-box">
+       <div className="inner-box">
+           <Outlet></Outlet>
+       </div>
+   </div>
     </>
 }
 

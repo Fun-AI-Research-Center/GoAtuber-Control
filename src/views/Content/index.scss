@@ -1,0 +1,13 @@
+.outer-box {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: auto;
+
+}
+.inner-box {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}

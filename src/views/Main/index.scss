@@ -18,12 +18,13 @@
   font-size:20px !important;
   color : #1F1F1F;
   vertical-align: middle;
-  line-height:2.5em !important;
+  line-height:3em !important;
 }
 
 .content {
   text-align: center;
   height: 90vh;
+  width: 60vw;
   background-color: #fff;
   border: 2px solid #F7F7F7;
   border-top: 0;
@@ -33,6 +34,7 @@
 .side {
   text-align: center;
   line-height: 120px;
+  width: 40vw !important;
   background-color: #fff !important;
   border:1px solid #F7F7F7;
   border-top:0;
