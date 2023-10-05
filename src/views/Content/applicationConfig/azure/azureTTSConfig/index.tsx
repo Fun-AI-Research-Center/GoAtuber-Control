@@ -1,6 +1,6 @@
 import type {FC} from "react";
 import {Col, Row} from "antd";
-import Configs from "./configs.ts";
+import Configs from "./configs.tsx";
 import TitleInput from "../../../../../components/TitleInput.tsx";
 
 
@@ -23,6 +23,8 @@ const App : FC = () => {
                                            key={index}
                                            updateUrl={item.updateUrl}
                                            updatePropsName={item.updatePropsName}
+                                           isPercent={item.isPercent}
+                                           isNumber={item.isNumber}
                         ></TitleInput>
                     })}
                 </Col>

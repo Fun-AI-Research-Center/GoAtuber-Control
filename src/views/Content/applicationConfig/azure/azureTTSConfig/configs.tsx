@@ -1,12 +1,11 @@
 import baseUrl from "../../../../../constant/baseUrl.ts";
-
 const propNames1 = ["application","azure","azure_tts"]
 const propNames2 = ["application","azure","azure_tts","speak"]
 const propNames3 = ["application","azure","azure_tts","voice"]
 const updateUrl = baseUrl +"/azure"
 const updatePropsName =  ["application","azure"]
-
-const configs = [
+import {Props} from "../../../../../components/TitleInput.tsx";
+const configs:Props[] = [
     {
         propNames:propNames1,
         title:"Azure 语音服务 API key",
@@ -68,14 +67,18 @@ const configs = [
         title:"语速",
         label:"rate",
         updateUrl: updateUrl,
-        updatePropsName: updatePropsName
+        updatePropsName: updatePropsName,
+        isPercent:true,
+        isNumber:true
     },
     {
         propNames:propNames3,
         title:"音量",
         label:"volume",
         updateUrl: updateUrl,
-        updatePropsName: updatePropsName
+        updatePropsName: updatePropsName,
+        isPercent:true,
+        isNumber:true
     },
 
 
