@@ -23,31 +23,8 @@ const App : FC<Props> = ({propNames,label,title,style,frontIcon,updateUrl,update
     const [defaultValue,setDefaultValue] = useState("+")
     
     useEffect(()=>{
-        if (isPercent && getLastObject(propNames,data)[label][0] === "-"){
-            setDefaultValue("-")
-        }
+        setDefaultValue("-")
     },[data, isPercent, label, propNames])
-        const  addonBefore = isPercent ? (<Select
-            defaultValue= {defaultValue}
-            onChange={(value)=>{
-                const newData = produce(data, (draft:any) => {
-                    if (value === "-") {
-                        getLastObject(propNames, draft)[label] = getLastObject(propNames, draft)[label].replace("+", "-")
-                        setDefaultValue("-")
-                    }
-                    else{
-                        getLastObject(propNames, draft)[label] = getLastObject(propNames, draft)[label].replace("-", "+")
-                        setDefaultValue("+")
-                    }
-                });
-                const newConfig = getLastObject(updatePropsName ? updatePropsName : propNames,newData)
-                clearTime(false,newConfig)
-
-            }}
-        >
-            <Option value="+">+</Option>
-            <Option value="-">-</Option>
-        </Select>) : ""
         const  addonAfter = isPercent ? "%" : ""
 
     function handleChange(e:any){
@@ -99,13 +76,32 @@ const App : FC<Props> = ({propNames,label,title,style,frontIcon,updateUrl,update
                         value={handAdd(getLastObject(propNames, data)[label])}
                         onChange={handleNumberChange}
                         style={{width:"100%"}}
-                        addonBefore={addonBefore}
+                        addonBefore={isPercent ? (<Select
+                            defaultValue={defaultValue}
+                            onChange={(value)=>{
+                                const newData = produce(data, (draft:any) => {
+                                    if (value === "-") {
+                                        getLastObject(propNames, draft)[label] = getLastObject(propNames, draft)[label].replace("+", "-")
+                                        setDefaultValue("-")
+                                    }
+                                    else{
+                                        getLastObject(propNames, draft)[label] = getLastObject(propNames, draft)[label].replace("-", "+")
+                                        setDefaultValue("+")
+                                    }
+                                });
+                                const newConfig = getLastObject(updatePropsName ? updatePropsName : propNames,newData)
+                                clearTime(false,newConfig)
+
+                            }}
+                        >
+                            <Option value="+">+</Option>
+                            <Option value="-">-</Option>
+                        </Select>) : ""}
                         addonAfter={addonAfter}
                     /> :  <Input
                         defaultValue="mysite"
                         value={getLastObject(propNames,data)[label]}
                         onChange={handleChange}
-                        addonBefore={addonBefore}
                         addonAfter={addonAfter}
                     />}
 
