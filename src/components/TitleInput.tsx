@@ -23,8 +23,34 @@ const App : FC<Props> = ({propNames,label,title,style,frontIcon,updateUrl,update
     const [defaultValue,setDefaultValue] = useState("+")
     
     useEffect(()=>{
-        setDefaultValue("-")
+        if (getLastObject(propNames,data)[label].includes && getLastObject(propNames,data)[label].includes("-")){
+            setDefaultValue("-")
+        }else {
+            setDefaultValue("+")
+        }
+
     },[data, isPercent, label, propNames])
+    const addonBefore = isPercent ? (<Select
+            value={defaultValue}
+            onChange={(value)=>{
+                const newData = produce(data, (draft:any) => {
+                    if (value === "-") {
+                        getLastObject(propNames, draft)[label] = getLastObject(propNames, draft)[label].replace("+", "-")
+                        setDefaultValue("-")
+                    }
+                    else{
+                        getLastObject(propNames, draft)[label] = getLastObject(propNames, draft)[label].replace("-", "+")
+                        setDefaultValue("+")
+                    }
+                });
+                const newConfig = getLastObject(updatePropsName ? updatePropsName : propNames,newData)
+                clearTime(false,newConfig)
+
+            }}
+        >
+            <Option value="+">+</Option>
+            <Option value="-">-</Option>
+        </Select>) : ""
         const  addonAfter = isPercent ? "%" : ""
 
     function handleChange(e:any){
@@ -48,6 +74,7 @@ const App : FC<Props> = ({propNames,label,title,style,frontIcon,updateUrl,update
         });
         const newConfig = getLastObject(updatePropsName ? updatePropsName : propNames,newData)
         clearTime(false,newConfig)
+        setData(newData);
     }
 
     function handAdd(item: string | number | null) {
@@ -69,34 +96,14 @@ const App : FC<Props> = ({propNames,label,title,style,frontIcon,updateUrl,update
         <>
             <Row style={{...style}}>
                 <Col span={6}>
-                        <h4 style={{margin:0,height:"100%",lineHeight:2}}>{title} {frontIcon}</h4>
+                        <h4 style={{margin:0,height:"100%",lineHeight:2}}>{title} {frontIcon} </h4>
                 </Col>
                 <Col span={16}>
                     {isNumber ? <InputNumber
                         value={handAdd(getLastObject(propNames, data)[label])}
                         onChange={handleNumberChange}
                         style={{width:"100%"}}
-                        addonBefore={isPercent ? (<Select
-                            defaultValue={defaultValue}
-                            onChange={(value)=>{
-                                const newData = produce(data, (draft:any) => {
-                                    if (value === "-") {
-                                        getLastObject(propNames, draft)[label] = getLastObject(propNames, draft)[label].replace("+", "-")
-                                        setDefaultValue("-")
-                                    }
-                                    else{
-                                        getLastObject(propNames, draft)[label] = getLastObject(propNames, draft)[label].replace("-", "+")
-                                        setDefaultValue("+")
-                                    }
-                                });
-                                const newConfig = getLastObject(updatePropsName ? updatePropsName : propNames,newData)
-                                clearTime(false,newConfig)
-
-                            }}
-                        >
-                            <Option value="+">+</Option>
-                            <Option value="-">-</Option>
-                        </Select>) : ""}
+                        addonBefore={addonBefore}
                         addonAfter={addonAfter}
                     /> :  <Input
                         defaultValue="mysite"
